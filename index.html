@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+  
+   <header id="header">
+    <div class="container">
+      <div class="name">Suganya</div>      
+      <nav>
+        <button class="navbar-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="navbar-item">
+      <ul>
+          <li><a href="#Home">Home</a></li>
+          <li><a href="#About">About</a></li>
+          <li><a href="#Education">Education</a></li> 
+          <li><a href="#Skills">Skills</a></li>
+          <li><a href="#Certificate">Certificate</a></li>
+          <li><a href="#Projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <script>
+    const navbarBtn = document.querySelector('.navbar-btn');
+    const navbarItem = document.querySelector('.navbar-item');
+
+    navbarBtn.addEventListener('click', () => {
+      navbarItem.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.navbar-item a').forEach(link => {
+      link.addEventListener('click', () => {
+        navbarItem.classList.remove('active');
+      });
+    });
+  </script>
+  
+ <section id="Home"> 
+  <div class="container hero-container">
+    <div class="hero-text">
+
+      <h1 id="typing"></h1>
+
+<script>
+  const text = "Welcome to My Portfolio Website!";
+  let i = 0;
+
+  function typingEffect() {
+    if (i < text.length) {
+      document.getElementById("typing").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typingEffect, 100);
+    }
+  }
+  typingEffect();
+</script>
+
+<style>
+#typing {
+  font-size: 24px;
+  color: cyan;
+  text-align: center;
+  margin-top: 20px;
+}
+</style>
+
+      <h1>Hi, I'm <span class="text-primary">Suganya</span></h1>
+      <p>
+        Full Stack Developer with expertise in HTML5, CSS3, and JavaScript, bringing strong 
+        team collaboration, and project execution skills. Adept at building scalable applications 
+        and delivering innovative solutions. Seeking opportunities in reputed MNCs to contribute 
+        as a dynamic developer.
+      </p>
+      <a href="#Projects" class="btn">View My Work</a>
+    </div>
+    
+
+    <div class="hero-img">
+      <img src="./images/image.jpg" alt="Suganya">
+    </div>
+  </div>
+</section>
+
+  <section id="About">
+  <div class="container">
+    <div class="hero-text">
+      <h1 class="section-title">About <span class="text-primary">Me</span></h1>
+      <div class="About-content">
+        <div class="about-left">
+          <h2><strong>Who I Am,</strong></h2>
+          <p>
+            Hi, I’m Suganya, a passionate Computer Science postgraduate student with a keen interest in full-stack development. I enjoy creating responsive, user-friendly web applications and continuously improving my skills in HTML, CSS, JavaScript and C++.
+          </p>
+          <a href="#" class="btn">Download CV</a>
+        </div>
+
+        
+        <div class="about-right">
+          <h3>Watch My Introduction</h3>
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  
+  <section id="Education" class="timeline-section">
+    <h1 class="title">Edu<span class="text-primary">cation</span></h1>
+    <div class="timeline">
+      <div class="timeline-item left">
+        <div class="content">
+          <h3>Higher School</h3>
+          <h2>SSLC</h2>
+          <p>Government Higher Secondary School, Tiruppur | 64%</p>
+        </div>
+        <span class="year">2020</span>
+      </div>
+
+      <div class="timeline-item right">
+        <div class="content">
+          <h3>Higher School</h3>
+          <h2>HSC</h2>
+          <p>Government Higher Secondary School, Tiruppur | 60%</p>
+        </div>
+        <span class="year">2022</span>
+      </div>
+
+      <div class="timeline-item left">
+        <div class="content">
+          <h3>University</h3>
+          <h2>Bachelor's Degree</h2>
+          <p>Information Technology | Karpagam Academy of Higher Education | 74%</p>
+        </div>
+        <span class="year">2025</span>
+      </div>
+
+      <div class="timeline-item right">
+        <div class="content">
+          <h3>University</h3>
+          <h2>Master's Degree</h2>
+          <p>Computer Science | RVS College of Arts and Science</p>
+        </div>
+        <span class="year">2027</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="Skills">
+    <h1>My <span class="text-primary">Skills</span></h1>
+    <h2>Technical Skills</h2>
+
+    <div class="skills-container">
+      <div class="row">
+        <div class="skill">
+          <div class="circle-wrapper">
+            <svg width="150" height="150">
+              <circle class="bg" cx="75" cy="75" r="70"/>
+              <circle class="progress" cx="75" cy="75" r="70" style="stroke-dashoffset: calc(440 - (440 * 50 / 100));"/>
+            </svg>
+            <div class="percentage">50%</div>
+          </div>
+          <div class="label">HTML 5</div>
+        </div>
+
+        <div class="skill">
+          <div class="circle-wrapper">
+            <svg width="150" height="150">
+              <circle class="bg" cx="75" cy="75" r="70"/>
+              <circle class="progress" cx="75" cy="75" r="70" style="stroke-dashoffset: calc(440 - (440 * 50 / 100));"/>
+            </svg>
+            <div class="percentage">50%</div>
+          </div>
+          <div class="label">CSS 3</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="skill">
+          <div class="circle-wrapper">
+            <svg width="150" height="150">
+              <circle class="bg" cx="75" cy="75" r="70"/>
+              <circle class="progress" cx="75" cy="75" r="70" style="stroke-dashoffset: calc(440 - (440 * 40 / 100));"/>
+            </svg>
+            <div class="percentage">40%</div>
+          </div>
+          <div class="label">JavaScript</div>
+        </div>
+
+        <div class="skill">
+          <div class="circle-wrapper">
+            <svg width="150" height="150">
+              <circle class="bg" cx="75" cy="75" r="70"/>
+              <circle class="progress" cx="75" cy="75" r="70" style="stroke-dashoffset: calc(440 - (440 * 50 / 100));"/>
+            </svg>
+            <div class="percentage">50%</div>
+          </div>
+          <div class="label">C++</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="Certificate">
+  <div class="container">
+    <h1 class="section-title">My <span class="text-primary">Certificates</span></h1>
+    <div class="certificate-gallery">
+
+      <div class="certificate-card">
+        <img src="./images/html image.png" alt="Certificate 1">
+        <h3></h3>
+        <a href="" class="btn">View </a>
+      </div>
+
+      <div class="certificate-card">
+        <img src="images/c image.png" alt="Certificate 2">
+        <h3></h3>
+          <a href="C:\Users\Suganya\Downloads\Certifiacte\c program.pdf" class="btn">View </a>
+      </div>
+     
+      <div class="certificate-card">
+        <img src="images/js img.png" alt="Certificate 2">
+        <h3></h3>
+          <a href="C:\Users\Suganya\Downloads\Certifiacte\javascript.pdf" class="btn">View </a>
+      </div>
+
+      <div class="certificate-card">
+        <img src="images/book img.png" alt="Certificate 3">
+        <h3></h3>
+          <a href="C:\Users\Suganya\Downloads\Certifiacte\book expo (2).pdf" class="btn">View</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <section id="Projects">
+  <h1 class="section-title">My <span class="text-primary">Projects</span></h1>
+
+  <div class="projects-slider">
+    <div class="project-card">
+      <img src="./images/portfolio image.png" alt="Project 1">
+      <h3>Portfolio Website</h3>
+      <p>A personal portfolio website built with HTML, CSS, and JavaScript.</p>
+      <div class="btn-group">
+      <a href="index.html" class="btn">View Project</a>
+      <a href="https://github.com/YourGitHubUsername/Portfolio" target="_blank" class="btn code-btn">View Code</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="./images/pacman image.png" alt="Project 2">
+      <h3>Pac-Man game</h3>
+      <p>Developed a classic Pac-Man arcade game clone using HTML, CSS, and JavaScript.</p>
+      <div class="btn-group">
+      <a href="C:\Users\Suganya\Desktop\Assignment\javascript\Week3 js\Assign\pacman.html" class="btn">View Project</a>
+      <a href="https://github.com/RathnavelSubramaniam/coding-assignment-3-suganya240/blob/main/pacman.html" target="_blank" class="btn code-btn">View Code</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="./images/Ball image.png" alt="Project 3">
+      <h3>Moving Ball Animation</h3>
+      <p>An interactive animation project created using HTML,CSS and JavaScript.</p>
+      <div class="btn-group">
+      <a href="C:\Users\Suganya\Desktop\Assignment\javascript\Week2 js\balls.html" class="btn">View Project</a>
+      <a href="https://github.com/RathnavelSubramaniam/coding-assignment-2-suganya240/blob/main/balls.html" target="_blank" class="btn code-btn">View Code</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="images/multi-pac.png" alt="Project 4">
+      <h3>Multi PacMan</h3>
+      <p>Developed a classic Pac-Man arcade game clone using HTML, CSS, and JavaScript</p>
+      <div class="btn-group">
+      <a href="C:\Users\Suganya\Desktop\Assignment\javascript\Week6_js\Assign6.1\Pacman.html" class="btn">View Project</a>
+      <a href="https://github.com/RathnavelSubramaniam/Coding_Assignment_6-suganya240/blob/main/Pacman.html" target="_blank" class="btn code-btn">View Code</a>
+      </div>
+    </div>
+  
+   
+      <div class="project-card">
+      <img src="images/to-do list image.png"Project 3">
+      <h3>TO-DO List</h3>
+      <p>JavaScript allows you to manipulate the DOM to add, remove, or update any element on a web page.</p>
+      <div class="btn-group">
+      <a href="C:\Users\Suganya\Desktop\Assignment\javascript\Week6_js\Activity\Activity6.3.html" class="btn">View Project</a>
+      <a href="https://github.com/RathnavelSubramaniam/coding-activity-6-suganya240/blob/main/Activity6.3.html" target="_blank" class="btn code-btn">View Code</a>
+      </div>
+    </div>
+
+          <div class="project-card">
+      <img src="images/Eye image.png"Project 3">
+      <h3>Eye Movement</h3>
+      <p>Developed a classic Eye Movement game using HTML, CSS and JavaScript</p>
+      <div class="btn-group">
+      <a href="C:\Users\Suganya\Desktop\Assignment\javascript\Week7 js\Assign\Assign7.1.html" class="btn">View Project</a>
+      <a href="https://github.com/RathnavelSubramaniam/coding-assignment-7-suganya240/blob/main/Assign7.1.html" target="_blank" class="btn code-btn">View Code</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="images/grid box.png" alt="Project 4">
+      <h3>Dynamic Grid-Box</h3>
+      <p>Developed a classic Dynamic grid box using HTML, CSS, and Javascript</p>
+      <div class="btn-group">
+      <a href="C:\Users\Suganya\Desktop\Assignment\javascript\Week7 js\Activity\Activity7.3\indexx.html"class="btn">View Project</a>
+      <a href="https://github.com/RathnavelSubramaniam/coding-activity-7-suganya240/blob/main/indexx.html" target="_blank" class="btn code-btn">View Code</a>
+      </div>
+    </div>
+    </div>
+</section>
+
+  
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Get In <span class="text-primary">Touch</span></h2>
+      <div class="contact-form">
+        <form>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  
+  <footer id="footer">
+    <div class="container">
+      <div class="social-links">
+        <a href="https://github.com/suganya240"><i class='bx bxl-github'></i></a>
+        <a href="https://www.linkedin.com/in/suganya-c-597883263"><i class='bx bxl-linkedin'></i></a>
+        <a href="mailto:csuganya2400@gmail.com"><i class='bx bxl-gmail'></i></a>
+        <a href="tel:+9080494299"><i class='bx bx-phone'></i></a>
+      </div>
+      <p>&copy; 2025 Suganya. All Rights Reserved.</p>
+    </div>
+  </footer>
+  
+</body>
+</html>
+
