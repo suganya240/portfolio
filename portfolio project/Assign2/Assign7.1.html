@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eye Movement Exercise</title>
+  <style>
+    body {
+      background: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .eye-container {
+      display: flex;
+      gap: 40px;
+    }
+
+    .eye {
+      width: 80px;
+      height: 80px;
+      background: white;
+      border: 3px solid black;
+      border-radius: 50%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pupil {
+      width: 25px;
+      height: 25px;
+      background: black;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+<body>
+  <div class="eye-container">
+    <div class="eye">
+      <div class="pupil"></div>
+    </div>
+    <div class="eye">
+      <div class="pupil"></div>
+    </div>
+  </div>
+
+  <script>
+    const eyes = document.querySelectorAll(".eye");
+
+    document.addEventListener("mousemove", (event) => {
+      const mouseX = event.clientX;
+      const mouseY = event.clientY;
+
+      for (let i = 0; i < eyes.length; i++) {
+        const eye = eyes[i];
+        const pupil = eye.querySelector(".pupil");
+
+        const rect = eye.getBoundingClientRect();
+        const eyeCenterX = rect.left + rect.width / 2;
+        const eyeCenterY = rect.top + rect.height / 2;
+
+        const angle = Math.atan2(mouseY - eyeCenterY, mouseX - eyeCenterX);
+        const maxMove = 25; 
+
+        const pupilX = Math.cos(angle) * maxMove;
+        const pupilY = Math.sin(angle) * maxMove;
+
+        pupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
+      }
+    });
+  </script>
+</body>
+</html>
