@@ -486,7 +486,17 @@ h2 {
   font-size: 18px;
   color: #00aaff;
 }
+.skills-container {
+  display: grid;
+  grid-auto-flow: column;   
+  grid-template-rows: repeat(2, auto); 
+  gap: 30px;
+  justify-content: center;
+}
 
+.skill {
+  text-align: center;
+}
 #Certificate {
   padding: 100px 100px;
   background: #000000;
