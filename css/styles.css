@@ -342,68 +342,97 @@ h2 span{
   }
 }
 
+/* Education - Terminal Style */
+#Education {
+  padding: 80px 50px;
+  background: #050505;
+  text-align: center;
+}
 
-.timeline {
-  position: relative;
+.terminal-window {
+  max-width: 750px;
   margin: 0 auto;
-  max-width: 1000px;
-  padding: 20px;
-}
-.timeline::after {
-  content: '';
-  position: absolute;
-  width: 4px;
-  background-color: #00e0ff;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  margin-left: -2px;
+  background: #0a0a0a;
+  border: 1px solid #00f7ff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(0, 247, 255, 0.25);
+  text-align: left;
+  font-family: 'Consolas', 'Courier New', monospace;
 }
 
-.timeline-item {
-  padding: 20px;
-  position: relative;
-  width: 50%;
-}
-.timeline-item.left { left: 0; text-align: right; }
-.timeline-item.right { left: 50%; text-align: left; }
-
-.timeline-item .content {
-  padding: 20px;
-  background: #0f0f0f;
-  border: 2px solid #00f7ff;
-  border-radius: 15px;
-  box-shadow: 0 0 20px #00f7ff;
+.terminal-header {
+  background: #1a1a1a;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #222;
 }
 
-.timeline-item .year {
-  position: absolute;
-  top: -15px;
+.terminal-header .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot.red { background: #ff5f56; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #27c93f; }
+
+.terminal-title {
+  margin-left: 10px;
+  color: #888;
+  font-size: 0.85rem;
+}
+
+.terminal-body {
+  padding: 25px 20px;
+  color: #00ff9c;
+  font-size: 0.95rem;
+  line-height: 1.9;
+}
+
+.terminal-body .prompt {
+  color: #00aaff;
   font-weight: bold;
-  background: #00e0ff;
-  color: #000;
-  padding: 6px 12px;
-  border-radius: 20px;
+  margin-right: 6px;
 }
 
-@media (max-width: 768px) {
-  .timeline::after {
-    left: 15px;   
-  }
-  .timeline-item {
-    width: 100%;
-    left: 0 !important;
-    text-align: left !important;
-    padding-left: 50px;
-    margin-bottom: 30px;
-  }
-  .timeline-item .year {
-    left: 0;
-    top: -10px;
-    transform: none;
-  }
+.term-line {
+  color: #d0d0d0;
+  padding-left: 20px;
 }
 
+.term-key {
+  color: #00eaff;
+  font-weight: 600;
+}
+
+.term-year {
+  color: #888;
+}
+
+.cursor {
+  display: inline-block;
+  width: 8px;
+  background: #00ff9c;
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@media (max-width: 600px) {
+  .terminal-body {
+    font-size: 0.8rem;
+  }
+  .term-line {
+    padding-left: 10px;
+  }
+}
 
 h1 {
   font-size: 40px;
