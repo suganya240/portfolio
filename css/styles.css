@@ -464,7 +464,15 @@ h2 {
 .section-title{
   color: #ffffff;
 }
-
+.skill-card .skill-img {
+  width: 3.5rem;
+  height: 3.5rem;
+  object-fit: contain;
+  margin-bottom: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 #Certificate {
   padding: 50px 50px;
