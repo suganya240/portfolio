@@ -422,80 +422,39 @@ h2 {
   text-align: center;
 }
 
-.skills-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 60px;
-}
-
-.row {
-  display: flex;
-  justify-content: center;
-  gap: 80px;
-  flex-wrap: wrap;
-}
-
-.skill {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-}
-
-.skill svg {
-  transform: rotate(-90deg);
-}
-
-.skill circle {
-  fill: none;
-  stroke-width: 12;
-  stroke-linecap: round;
-}
-
-.skill .bg {
-  stroke: #333;
-}
-
-.skill .progress {
-  stroke: #00aaff;
-  stroke-dasharray: 440;
-  stroke-dashoffset: 440;
-  transition: stroke-dashoffset 1s ease;
-}
-
-.skill .percentage {
-  position: absolute;
-  font-size: 22px;
-  font-weight: bold;
-  color: #fff;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.circle-wrapper {
-  position: relative;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-}
-
-.label {
-  margin-top: 15px;
-  font-size: 18px;
-  color: #00aaff;
-}
-.skills-container {
+.skills-grid {
   display: grid;
-  grid-auto-flow: column;   
-  grid-template-rows: repeat(2, auto); 
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 30px;
-  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.skill {
+.skill-card {
+  background: #0f0f0f;
+  border: 2px solid #00f7ff;
+  border-radius: 15px;
+  padding: 30px 15px;
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 247, 255, 0.2);
+}
+
+.skill-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px rgba(0, 247, 255, 0.6);
+}
+
+.skill-card i {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.skill-card .label {
+  font-size: 1.1rem;
+  color: #00aaff;
+  font-weight: 600;
 }
 #Certificate {
   padding: 100px 100px;
