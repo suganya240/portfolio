@@ -704,7 +704,26 @@ h2 {
   color: #fff;
   text-align: center;
 }
+.projects-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    align-items: stretch;
+}
+
+.project-card {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 25px;
+    border-radius: 20px;
+}
 .projects-slider {
   display: flex;
   overflow-x: auto;
@@ -780,6 +799,18 @@ h2 {
     transform: translateY(-3px);
     box-shadow:
         0 8px 20px rgba(0, 198, 255, 0.4);
+}
+
+@media (max-width: 900px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 #contact {
