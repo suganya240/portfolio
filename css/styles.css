@@ -870,6 +870,23 @@ h2 {
     width: 100%;
   }
 }
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.tech-stack span {
+  color: #00ffff;
+  border: 1px solid #00ffff;
+  padding: 7px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
 #contact {
   padding: 5rem 0;
   color: white;
