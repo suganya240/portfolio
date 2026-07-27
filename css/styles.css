@@ -1347,36 +1347,3 @@ body.light-mode .navbar-item ul li a {
         0 0 20px #00ffff;
 }
 
-.cursor-outline {
-    width: 35px;
-    height: 35px;
-
-    border: 2px solid #00ffff;
-
-    position: fixed;
-
-    top: 0;
-    left: 0;
-
-    border-radius: 50%;
-
-    pointer-events: none;
-
-    z-index: 9998;
-
-    transform: translate(-50%, -50%);
-
-    transition:
-        width 0.2s,
-        height 0.2s,
-        background 0.2s;
-}
-
-@media (max-width: 768px) {
-
-    .cursor-dot,
-    .cursor-outline {
-        display: none;
-    }
-
-}
