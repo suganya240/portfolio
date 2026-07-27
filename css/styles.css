@@ -1323,27 +1323,39 @@ body.light-mode .navbar-item ul li a {
 @keyframes nav-cursor-blink {
   50% { opacity: 0; }
 }
-.cursor-dot {
-    width: 8px;
-    height: 8px;
-
-    background: #00ffff;
-
-    position: fixed;
-
-    top: 0;
-    left: 0;
-
-    border-radius: 50%;
-
-    pointer-events: none;
-
-    z-index: 9999;
-
-    transform: translate(-50%, -50%);
-
-    box-shadow:
-        0 0 10px #00ffff,
-        0 0 20px #00ffff;
+#cursorDot, #cursorRing {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 3000;
+  transform: translate(-50%, -50%);
 }
 
+#cursorDot {
+  width: 6px;
+  height: 6px;
+  background: #00f7ff;
+  border-radius: 50%;
+}
+
+#cursorRing {
+  width: 28px;
+  height: 28px;
+  border: 1.5px solid rgba(0, 247, 255, 0.6);
+  border-radius: 50%;
+  transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+}
+
+#cursorRing.hover {
+  width: 44px;
+  height: 44px;
+  border-color: #00f7ff;
+  background: rgba(0, 247, 255, 0.08);
+}
+
+@media (max-width: 900px) {
+  #cursorDot, #cursorRing {
+    display: none;
+  }
+}
