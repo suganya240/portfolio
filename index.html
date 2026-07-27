@@ -16,7 +16,8 @@
   <div id="bootOverlay">
     <div class="boot-lines" id="bootLines"></div>
   </div>
-
+<div id="cursorDot"></div>
+<div id="cursorRing"></div>
 
   <button id="themeToggle" aria-label="Toggle theme"><i class='bx bx-moon'></i></button>
 
@@ -756,35 +757,32 @@ I am a Computer Science postgraduate student passionate about building web appli
       progressBar.style.width = percent + "%";
     });
   </script>
+<script>
+  const cursorDot = document.getElementById("cursorDot");
+  const cursorRing = document.getElementById("cursorRing");
+  let ringX = 0, ringY = 0, mouseX = 0, mouseY = 0;
 
-  <script>
-    const cursorDot = document.getElementById("cursorDot");
-    const cursorRing = document.getElementById("cursorRing");
-    let ringX = 0, ringY = 0, mouseX = 0, mouseY = 0;
+  window.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    cursorDot.style.left = mouseX + "px";
+    cursorDot.style.top = mouseY + "px";
+  });
 
-    window.addEventListener("mousemove", (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      cursorDot.style.left = mouseX + "px";
-      cursorDot.style.top = mouseY + "px";
-    });
+  function animateRing() {
+    ringX += (mouseX - ringX) * 0.15;
+    ringY += (mouseY - ringY) * 0.15;
+    cursorRing.style.left = ringX + "px";
+    cursorRing.style.top = ringY + "px";
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
 
-    function animateRing() {
-      ringX += (mouseX - ringX) * 0.15;
-      ringY += (mouseY - ringY) * 0.15;
-      cursorRing.style.left = ringX + "px";
-      cursorRing.style.top = ringY + "px";
-      requestAnimationFrame(animateRing);
-    }
-    animateRing();
-
-    document.querySelectorAll("a, button, .skill-card, .project-card, .level-card").forEach(el => {
-      el.addEventListener("mouseenter", () => cursorRing.classList.add("hover"));
-      el.addEventListener("mouseleave", () => cursorRing.classList.remove("hover"));
-    });
-
-
-  </script>
+  document.querySelectorAll("a, button, .skill-card, .project-card, .level-card").forEach(el => {
+    el.addEventListener("mouseenter", () => cursorRing.classList.add("hover"));
+    el.addEventListener("mouseleave", () => cursorRing.classList.remove("hover"));
+  });
+</script>
 
   <script>
     const revealEls = document.querySelectorAll(".reveal");
