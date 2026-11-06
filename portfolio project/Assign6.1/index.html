@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PacMen Factory</title>
+</head>
+<body>
+  <div>
+    <button onclick="makeOne()"width='200' hegiht='30'>Add PacMan</button>
+    <button onclick="update()"width='200'hegiht='30'>Start Game</button>
+  </div>
+
+  <div id="game"></div>
+
+  <script>
+    let pos = 0;
+    const pacArray = [
+      ["PacMan1.png", "PacMan2.png"],
+      ["PacMan3.png", "PacMan4.png"],
+    ];
+    const pacMen = []; 
+
+
+    function setToRandom(scale) {
+      return {
+        x: Math.random() * scale,
+        y: Math.random() * scale,
+      };
+    }
+    function makePac() {
+      let velocity = setToRandom(10);
+      let position = setToRandom(200);
+
+      let game = document.getElementById("game");
+      let newimg = document.createElement("img");
+      newimg.style.position = "absolute";
+      newimg.width = 100;
+      newimg.src = pacArray[0][0]; 
+
+      newimg.style.left = position.x + "px";
+      newimg.style.top = position.y + "px";
+      game.appendChild(newimg);
+
+      return {
+        position,
+        velocity,
+        newimg,
+        direction: 0,
+        focus: 0,
+      };
+    }
+
+    
+    function update() {
+      pacMen.forEach((item) => {
+        checkCollisions(item);
+
+        item.position.x += item.velocity.x;
+        item.position.y += item.velocity.y;
+
+        item.focus = (item.focus + 1) % 2;
+        item.newimg.src = pacArray[item.direction][item.focus];
+
+        item.newimg.style.left = item.position.x + "px";
+        item.newimg.style.top = item.position.y + "px";
+      });
+      setTimeout(update, 100);
+    }
+
+
+    function checkCollisions(item) {
+      const game = document.getElementById("game");
+      const maxX = game.clientWidth - item.newimg.width;
+      const maxY = game.clientHeight - item.newimg.height;
+
+      if (item.position.x <= 0) {
+        item.velocity.x = Math.abs(item.velocity.x);
+        item.direction = 0; 
+      }
+      if (item.position.x >= maxX) {
+        item.velocity.x = -Math.abs(item.velocity.x);
+        item.direction = 1; 
+      }
+      if (item.position.y <= 0 || item.position.y >= maxY) {
+        item.velocity.y = -item.velocity.y;
+      }
+    }
+
+    function makeOne() {
+      pacMen.push(makePac());
+    }
+  </script>
+</body>
+</html>

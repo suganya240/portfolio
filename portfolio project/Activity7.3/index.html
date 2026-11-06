@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Grid</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <style>
+    
+#target {
+  display: grid;
+  grid-template-columns: repeat(10, 50px);
+  grid-gap: 5px;
+  margin-top: 20px;
+}
+
+
+.cell {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  border: 2px solid black;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.on {
+  background-color: orange;
+}
+
+  </style>
+
+  <button onclick="createGrid()">CREATE GRID</button>
+  <button onclick="move()">MOVE</button>
+
+  <div id="target"></div>
+
+  <script>
+    let position = 0;      
+const gridSize = 100;  
+let interval;          
+
+
+function createGrid() {
+  const target = document.getElementById("target");
+  target.innerHTML = ""; 
+
+  for (let i = 0; i < gridSize; i++) {
+    let cell = document.createElement("div");
+    cell.classList.add("cell");
+    cell.id = "cell-" + i;   
+    cell.innerText = i + 1;
+    target.appendChild(cell);
+  }
+}
+
+
+function toggle(pos) {
+  for (let i = 0; i < gridSize; i++) {
+    document.getElementById("cell-" + i).classList.remove("on");
+  }
+
+  document.getElementById("cell-" + pos).classList.add("on");
+}
+
+function move() {
+  if (!document.getElementById("cell-0")) {
+    alert("Please create the grid first!");
+    return;
+  }
+
+  clearInterval(interval);
+  position = 0;            
+
+  interval = setInterval(() => {
+    toggle(position);  
+    position++;
+
+    
+    if (position >= gridSize) {
+      position = 0;
+    }
+  }, 100); 
+}
+
+  </script>
+</body>
+</html>
